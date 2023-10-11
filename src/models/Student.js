@@ -12,6 +12,10 @@ module.exports = (sequelize) => {
         name: {
             type: DataTypes.STRING,
             allowNull: false,
+        },
+        birthday: {
+            type: DataTypes.DATEONLY,
+            defaultValue: null,
         }
     }, {
         timestamps: true

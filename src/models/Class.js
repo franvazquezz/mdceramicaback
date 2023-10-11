@@ -13,8 +13,16 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
+    classDay: {
+      type: DataTypes.DATEONLY,
+      defaultValue: null
+    },
     classPrice: {
       type: DataTypes.DECIMAL,
+      allowNull: false,
+    },
+    classPaid: {
+      type: DataTypes.BOOLEAN,
       allowNull: false,
     },
     ovenPrice: {

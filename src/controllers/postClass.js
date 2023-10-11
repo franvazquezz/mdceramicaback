@@ -5,7 +5,7 @@ const postClass = async (req, res) =>{
     
   try {
     const { id } = req.params;
-    const { className, classPrice, ovenPrice, materialName, materialPrice } = req.body;
+    const { className, classPrice, classDay, classPaid, ovenPrice, materialName, materialPrice } = req.body;
 
     // Verificar si el estudiante existe
     const existingStudent = await Student.findByPk(id);
@@ -17,6 +17,8 @@ const postClass = async (req, res) =>{
     const newClass = await Class.create({
       className,
       classPrice,
+      classDay,
+      classPaid,
       ovenPrice,
       materialName,
       materialPrice,
