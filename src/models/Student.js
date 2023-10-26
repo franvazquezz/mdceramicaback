@@ -16,7 +16,15 @@ module.exports = (sequelize) => {
         birthday: {
             type: DataTypes.DATEONLY,
             defaultValue: null,
-        }
+        },
+        telephone: {
+            type: DataTypes.STRING,
+            defaultValue: null
+        },
+        day: {
+            type: DataTypes.STRING,
+            defaultValue: null
+        },
     }, {
         timestamps: true
     })
