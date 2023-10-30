@@ -3,7 +3,7 @@ const { Student, Class } = require('../db');
 
 const postStudent = async (req, res) => {
     try {
-        const { name, birthday, telephone, day, className, classPrice, classDay, classPaid, ovenPrice, materialName, materialPrice } = req.body;
+        const { name, birthday, telephone, day, timetable, className, classPrice, classDay, classPaid, ovenPrice, materialName, materialPrice } = req.body;
         if (!name || !className || !classPrice || !ovenPrice || !materialName || !materialPrice) {
             return res.status(400).json({ error: 'Missing data' });
         }
@@ -11,7 +11,7 @@ const postStudent = async (req, res) => {
         const nameFormatted = name.charAt(0).toUpperCase() + name.slice(1);
 
         // Create a new student
-        const newStudent = await Student.create({ name: nameFormatted, birthday, telephone, day, });
+        const newStudent = await Student.create({ name: nameFormatted, birthday, telephone, day, timetable});
 
         // Create a new class
         const newClass = await Class.create({
@@ -41,7 +41,7 @@ const postStudent = async (req, res) => {
 const updateStudent = async (req, res) => {
     try {
         const { id } = req.params;
-        const { name, birthday, telephone, day } = req.body;
+        const { name, birthday, telephone, day, timetable } = req.body;
 
         // Verificar si el estudiante existe
         const existingStudent = await Student.findByPk(id);
@@ -52,7 +52,7 @@ const updateStudent = async (req, res) => {
 
         // Actualizar el nombre del estudiante
         const updatedName = name ? name[0].toUpperCase().concat(name.substring(1)) : existingStudent.name;
-        await existingStudent.update({ name: updatedName, birthday, telephone, day });
+        await existingStudent.update({ name: updatedName, birthday, telephone, day, timetable });
 
         res.status(200).json({ message: 'Student updated successfully', student: existingStudent });
     } catch (error) {

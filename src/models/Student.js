@@ -25,6 +25,10 @@ module.exports = (sequelize) => {
             type: DataTypes.STRING,
             defaultValue: null
         },
+        timetable: {
+            type: DataTypes.STRING,
+            defaultValue: null
+        }
     }, {
         timestamps: true
     })

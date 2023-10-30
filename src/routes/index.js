@@ -17,7 +17,7 @@ router.get('/students/:id', getStudentById);
 router.put('/students/:id', updateStudent);
 router.delete('/students/:id', deleteStudent);
 router.post('/students', postStudent);
-router.post('/students/:studentId/classes/:classId', postClass);
+router.post('/students/:id/classes', postClass);
 router.put('/students/:studentId/classes/:classId', updateClass);
 router.delete('/students/:studentId/classes/:classId', deleteClass);
 module.exports = router;

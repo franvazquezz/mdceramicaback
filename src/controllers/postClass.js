@@ -1,10 +1,10 @@
 const {Student, Class} = require('../db');
 
 
-const postClass = async (req, res) =>{
-    
+const postClass = async (req, res) => {
   try {
-    const { id } = req.params;
+    const { id } = req.params; // Obtener el valor directamente
+    console.log(id);
     const { className, classPrice, classDay, classPaid, ovenPrice, materialName, materialPrice } = req.body;
 
     // Verificar si el estudiante existe
@@ -34,4 +34,4 @@ const postClass = async (req, res) =>{
   }
 }
 
-module.exports = {postClass}
+module.exports = { postClass }
