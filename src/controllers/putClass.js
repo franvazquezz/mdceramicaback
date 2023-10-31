@@ -1,10 +1,10 @@
-const {Student, Class} = require('../db');
+const { Student, Class } = require('../db');
 
 
 const updateClass = async (req, res) => {
   try {
     const { studentId, classId } = req.params;
-    const { className, classPrice, classDay, classPaid, ovenPrice, materialName, materialPrice } = req.body;
+    const { className, classPrice, classDay, classPaid, ovenPrice, ovenPaid, materialName, materialPrice, materialPaid } = req.body;
 
     // Verificar si la clase existe
     const existingClass = await Class.findByPk(classId);
@@ -19,8 +19,10 @@ const updateClass = async (req, res) => {
       classDay,
       classPaid,
       ovenPrice,
+      ovenPaid,
       materialName,
       materialPrice,
+      materialPaid
     });
 
     res.status(200).json({ message: 'Class updated successfully', class: existingClass });
@@ -31,4 +33,4 @@ const updateClass = async (req, res) => {
 };
 
 
-module.exports = {updateClass}
+module.exports = { updateClass }

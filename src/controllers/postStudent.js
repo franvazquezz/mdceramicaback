@@ -3,7 +3,7 @@ const { Student, Class } = require('../db');
 
 const postStudent = async (req, res) => {
     try {
-        const { name, birthday, telephone, day, timetable, className, classPrice, classDay, classPaid, ovenPrice, materialName, materialPrice } = req.body;
+        const { name, birthday, telephone, day, timetable, className, classPrice, classDay, classPaid, ovenPrice, ovenPaid, materialName, materialPrice, materialPaid } = req.body;
         if (!name || !className || !classPrice || !ovenPrice || !materialName || !materialPrice) {
             return res.status(400).json({ error: 'Missing data' });
         }
@@ -20,9 +20,11 @@ const postStudent = async (req, res) => {
             classDay,
             classPaid,
             ovenPrice,
+            ovenPaid,
             materialName,
             materialPrice,
-        });
+            materialPaid
+          });
 
         // Associate the new class with the new student
         await newStudent.addClass(newClass);

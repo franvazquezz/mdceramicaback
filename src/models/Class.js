@@ -23,10 +23,16 @@ module.exports = (sequelize) => {
     },
     classPaid: {
       type: DataTypes.BOOLEAN,
+      defaultValue: false,
       allowNull: false,
     },
     ovenPrice: {
       type: DataTypes.DECIMAL,
+      allowNull: false,
+    },
+    ovenPaid: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false,
       allowNull: false,
     },
     materialName: {
@@ -35,6 +41,11 @@ module.exports = (sequelize) => {
     },
     materialPrice: {
       type: DataTypes.STRING,
+      allowNull: false,
+    },
+    materialPaid: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false,
       allowNull: false,
     },
   })

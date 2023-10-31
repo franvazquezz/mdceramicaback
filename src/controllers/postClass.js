@@ -1,11 +1,11 @@
-const {Student, Class} = require('../db');
+const { Student, Class } = require('../db');
 
 
 const postClass = async (req, res) => {
   try {
     const { id } = req.params; // Obtener el valor directamente
     console.log(id);
-    const { className, classPrice, classDay, classPaid, ovenPrice, materialName, materialPrice } = req.body;
+    const { className, classPrice, classDay, classPaid, ovenPrice, ovenPaid, materialName, materialPrice, materialPaid } = req.body;
 
     // Verificar si el estudiante existe
     const existingStudent = await Student.findByPk(id);
@@ -20,8 +20,10 @@ const postClass = async (req, res) => {
       classDay,
       classPaid,
       ovenPrice,
+      ovenPaid,
       materialName,
       materialPrice,
+      materialPaid
     });
 
     // Asociar la nueva clase al estudiante existente
