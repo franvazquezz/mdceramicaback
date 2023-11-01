@@ -3,6 +3,7 @@
 // Ejemplo: const authRouter = require('./auth.js');
 const router = require('express').Router();
 const { deleteClass } = require('../controllers/deleteClass');
+const { getAllClasses, getClassById } = require('../controllers/getClasses');
 const {getAllStudents, getStudentById } = require('../controllers/getStudents');
 const { postClass } = require('../controllers/postClass');
 const { postStudent, updateStudent, deleteStudent } = require('../controllers/postStudent');
@@ -18,6 +19,8 @@ router.put('/students/:id', updateStudent);
 router.delete('/students/:id', deleteStudent);
 router.post('/students', postStudent);
 router.post('/students/:id/classes', postClass);
+router.get('/classes', getAllClasses);
+router.get('/classes/:id', getClassById);
 router.put('/students/:studentId/classes/:classId', updateClass);
 router.delete('/students/:studentId/classes/:classId', deleteClass);
 module.exports = router;

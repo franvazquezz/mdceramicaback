@@ -35,7 +35,7 @@ const postStudent = async (req, res) => {
             class: newClass,
         });
     } catch (error) {
-        console.error(error);
+        alert(res.data.error);
         res.status(500).json({ error: 'Internal Server Error' });
     }
 };

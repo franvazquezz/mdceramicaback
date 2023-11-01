@@ -4,7 +4,7 @@ const getStudentsClassesDb = async () => {
     return await Student.findAll({
         include: {
             model: Class,
-            attributes: ['id', 'className', 'classPrice','classPaid', 'ovenPrice', 'materialName', 'materialPrice'],
+            attributes: ['id', 'className', 'classPrice', 'classDay', 'classPaid', 'ovenPrice', 'ovenPaid', 'materialName', 'materialPrice', 'materialPaid' ],
             through: {
                 attributes: [],
             }
