@@ -1,14 +1,25 @@
-//traemos a todos los perros, y si hay un name en query, traemos los que tengan ese nombre, completo o parcial, si no hay name treamos todos. siempre usando a getAll de functions que es nuestro array de objetos.
 const { getStudentsClassesDb } = require('./functions')
 
 const getAllStudents = async (req, res) => {
     try {
-        let allStudents = await getStudentsClassesDb()
-        res.status(200).send(allStudents)
+        const { name } = req.query;
+        let allStudents = await getStudentsClassesDb();
+
+        if (name) {
+            const filteredStudents = allStudents.filter(ele => ele.name.toLowerCase().includes(name.toLowerCase()));
+
+            if (filteredStudents.length) {
+                res.status(200).send(filteredStudents);
+            } else {
+                res.status(404).send(`No existe alumno con el nombre ${name}`);
+            }
+        } else {
+            res.status(200).send(allStudents);
+        }
     } catch (error) {
-        res.status(500).send(error)
+        res.status(500).send(error);
     }
-}
+};
 const getStudentById = async (req, res) => {
     try {
         const { id } = req.params

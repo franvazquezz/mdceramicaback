@@ -4,7 +4,7 @@
 const router = require('express').Router();
 const { deleteClass } = require('../controllers/deleteClass');
 const { getAllClasses, getClassById } = require('../controllers/getClasses');
-const {getAllStudents, getStudentById } = require('../controllers/getStudents');
+const { getAllStudents, getStudentById } = require('../controllers/getStudents');
 const { postClass } = require('../controllers/postClass');
 const { postStudent, updateStudent, deleteStudent } = require('../controllers/postStudent');
 const { updateClass } = require('../controllers/putClass');
