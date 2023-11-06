@@ -6,15 +6,15 @@ const {
   DB_USER, DB_PASSWORD, DB_HOST, DB_DEPLOY
 } = process.env;
 const sequelize = new Sequelize(DB_DEPLOY, {
-  logging: false, // set to console.log to see the raw SQL queries
-  native: false, // lets Sequelize know we can use pg-native for ~30% more speed
-  ssl: true, // Asegúrate de tener esta línea
+  logging: false,
+  dialect: 'postgres',
+  ssl: true,
   dialectOptions: {
     ssl: {
       require: true,
-      rejectUnauthorized: false, // Puedes ajustar esto según tus necesidades
+      rejectUnauthorized: false,
     },
-  }
+  },
 });
 // before----
 // const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/dogs`, {

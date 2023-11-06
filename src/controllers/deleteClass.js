@@ -1,4 +1,4 @@
-const {Class} = require('../db');
+const { Class } = require('../db');
 
 const deleteClass = async (req, res) => {
   try {
