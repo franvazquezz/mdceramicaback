@@ -1,8 +1,8 @@
-const {Student, Class} = require('../db');
+const {Class} = require('../db');
 
 const deleteClass = async (req, res) => {
   try {
-    const { studentId, classId } = req.params;
+    const { classId } = req.params;
 
     // Verificar si la clase existe
     const existingClass = await Class.findByPk(classId);
