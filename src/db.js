@@ -7,6 +7,7 @@ const {
 } = process.env;
 const sequelize = new Sequelize(DB_DEPLOY, {
   logging: false,
+  native: false,
   dialect: 'postgres',
   ssl: true,
   dialectOptions: {
