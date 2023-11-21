@@ -4,7 +4,7 @@ const { Student, Class } = require('../db');
 const postStudent = async (req, res) => {
     try {
         const { name, birthday, telephone, day, timetable, className, classPrice, classDay, classPaid, ovenPrice, ovenPaid, materialName, materialPrice, materialPaid } = req.body;
-        if (!name || !className || !classPrice || !ovenPrice || !materialName || !materialPrice) {
+        if (!name) {
             return res.status(400).json({ error: 'Missing data' });
         }
 
@@ -13,27 +13,12 @@ const postStudent = async (req, res) => {
         // Create a new student
         const newStudent = await Student.create({ name: nameFormatted, birthday, telephone, day, timetable});
 
-        // Create a new class
-        const newClass = await Class.create({
-            className,
-            classPrice,
-            classDay,
-            classPaid,
-            ovenPrice,
-            ovenPaid,
-            materialName,
-            materialPrice,
-            materialPaid
-          });
-
-        // Associate the new class with the new student
-        await newStudent.addClass(newClass);
 
         res.status(201).json({
-            message: `Student ${nameFormatted} and class ${className} created successfully`,
-            student: newStudent,
-            class: newClass,
+            message: `Student ${nameFormatted} created successfully`,
+            student: newStudent
         });
+        alert(`Student ${nameFormatted} created successfully`)
     } catch (error) {
         alert(res.data.error);
         res.status(500).json({ error: 'Internal Server Error' });
