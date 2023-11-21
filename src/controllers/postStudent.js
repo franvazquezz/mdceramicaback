@@ -3,7 +3,7 @@ const { Student, Class } = require('../db');
 
 const postStudent = async (req, res) => {
     try {
-        const { name, birthday, telephone, day, timetable, className, classPrice, classDay, classPaid, ovenPrice, ovenPaid, materialName, materialPrice, materialPaid } = req.body;
+        const { name, birthday, telephone, day, timetable } = req.body;
         if (!name) {
             return res.status(400).json({ error: 'Missing data' });
         }
