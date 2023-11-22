@@ -18,7 +18,6 @@ const postStudent = async (req, res) => {
             message: `Student ${nameFormatted} created successfully`,
             student: newStudent
         });
-        alert(`Student ${nameFormatted} created successfully`)
     } catch (error) {
         alert(res.data.error);
         res.status(500).json({ error: 'Internal Server Error' });
