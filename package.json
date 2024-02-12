@@ -8,7 +8,7 @@
 		"test": "mocha -w ./tests/**/*.spec.js"
 	},
 	"engines": {
-		"npm": "10.2.5",
+		"npm": "10.2.0",
 		"node": "v21.1.0"
 	},
 	"dependencies": {
