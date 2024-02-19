@@ -13,6 +13,11 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
+    assistance: {
+      type: DataTypes.ARRAY(DataTypes.BOOLEAN),
+      defaultValue: [false, false, false, false],
+      allowNull: true
+    },
     classDay: {
       type: DataTypes.DATEONLY,
       defaultValue: null
