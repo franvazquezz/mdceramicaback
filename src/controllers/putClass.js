@@ -1,3 +1,5 @@
+const { Student, Class } = require("../db");
+
 const updateClass = async (req, res) => {
   try {
     const { studentId, classId } = req.params;
@@ -20,14 +22,10 @@ const updateClass = async (req, res) => {
       return res.status(404).json({ error: "Class not found" });
     }
 
-    // Verificar y ajustar assistance si es null
-    const adjustedAssistance =
-      assistance === null ? [false, false, false, false] : assistance;
-
     // Actualizar la clase
     await existingClass.update({
       className,
-      assistance: adjustedAssistance,
+      assistance,
       classPrice,
       classDay,
       classPaid,
