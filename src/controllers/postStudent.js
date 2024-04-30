@@ -19,7 +19,7 @@ const postStudent = async (req, res) => {
             student: newStudent
         });
     } catch (error) {
-        alert(res.data.error);
+        console.log(error);
         res.status(500).json({ error: 'Internal Server Error' });
     }
 };
