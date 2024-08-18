@@ -11,6 +11,7 @@ const getStudentsClassesDb = async () => {
         "classPrice",
         "classDay",
         "classPaid",
+        "ovenName",
         "ovenPrice",
         "ovenPaid",
         "materialName",

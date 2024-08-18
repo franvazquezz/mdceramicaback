@@ -31,6 +31,10 @@ module.exports = (sequelize) => {
       defaultValue: false,
       allowNull: false,
     },
+    ovenName: {
+      type: DataTypes.DECIMAL,
+      allowNull: false,
+    },
     ovenPrice: {
       type: DataTypes.DECIMAL,
       allowNull: false,
