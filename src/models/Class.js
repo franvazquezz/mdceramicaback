@@ -33,7 +33,7 @@ module.exports = (sequelize) => {
     },
     ovenName: {
       type: DataTypes.DECIMAL,
-      allowNull: false,
+      allowNull: true,
     },
     ovenPrice: {
       type: DataTypes.DECIMAL,
