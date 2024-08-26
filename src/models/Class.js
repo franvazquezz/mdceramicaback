@@ -36,7 +36,7 @@ module.exports = (sequelize) => {
       allowNull: true,
     },
     ovenPrice: {
-      type: DataTypes.DECIMAL,
+      type: DataTypes.STRING,
       allowNull: false,
     },
     ovenPaid: {
